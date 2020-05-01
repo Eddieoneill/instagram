@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="1613.0434782608697" y="-912.05357142857133"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="jBg-gH-JAn">
             <objects>
-                <tabBarController id="Okv-QR-kGO" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" id="Okv-QR-kGO" customClass="MainTabBarController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MjV-ri-1T7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -80,11 +80,11 @@
             </objects>
             <point key="canvasLocation" x="-215" y="-109"/>
         </scene>
-        <!--Item 1-->
+        <!--Feed-->
         <scene sceneID="12v-hm-Tqj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JSe-Qa-OQB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="H26-mD-G4F"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="message.fill" catalog="system" id="H26-mD-G4F"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JaO-Ti-Q8z">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -99,11 +99,11 @@
             </objects>
             <point key="canvasLocation" x="702.89855072463774" y="-912.05357142857133"/>
         </scene>
-        <!--Item 2-->
+        <!--Create-->
         <scene sceneID="0xg-gQ-fui">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WZ6-pa-99H" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="8GB-Rs-Ldb"/>
+                    <tabBarItem key="tabBarItem" title="Create" image="plus.rectangle.fill" catalog="system" id="8GB-Rs-Ldb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ktz-1Q-DAo">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -118,11 +118,11 @@
             </objects>
             <point key="canvasLocation" x="702.89855072463774" y="-109.15178571428571"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="MyU-9r-0KI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4LU-kj-QrC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="3cR-eO-7eA"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="3cR-eO-7eA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="J3N-P1-oR9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -138,4 +138,9 @@
             <point key="canvasLocation" x="702.89855072463774" y="660.9375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="message.fill" catalog="system" width="128" height="113"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="plus.rectangle.fill" catalog="system" width="128" height="93"/>
+    </resources>
 </document>

@@ -50,7 +50,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you don't have an account press:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3k-dZ-umk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you don't have an account press:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3k-dZ-umk">
                                 <rect key="frame" x="50" y="633" width="264" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
@@ -67,12 +67,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUg-un-yDU">
-                                <rect key="frame" x="314" y="621" width="50" height="44"/>
+                                <rect key="frame" x="314" y="621" width="54" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="TnY-WA-VoY"/>
                                     <constraint firstAttribute="height" constant="44" id="ksE-zb-geR"/>
                                 </constraints>
-                                <state key="normal" title="create"/>
+                                <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <action selector="typeChangeButtonPressed:" destination="Aie-NZ-m1R" eventType="touchUpInside" id="I0W-6J-2Nh"/>
                                 </connections>
@@ -100,7 +100,6 @@
                             <constraint firstItem="XUg-un-yDU" firstAttribute="centerY" secondItem="L3k-dZ-umk" secondAttribute="centerY" id="s68-6C-gW6"/>
                             <constraint firstItem="L3k-dZ-umk" firstAttribute="top" secondItem="HuF-Ib-xth" secondAttribute="bottom" constant="20" id="vPI-M4-Cpt"/>
                             <constraint firstItem="ixm-5b-duS" firstAttribute="centerY" secondItem="pSe-ge-Nhe" secondAttribute="centerY" id="vrY-Ke-xR4"/>
-                            <constraint firstItem="Rs2-AJ-hOe" firstAttribute="trailing" secondItem="XUg-un-yDU" secondAttribute="trailing" constant="50" id="zu6-G6-swg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rs2-AJ-hOe"/>
                     </view>

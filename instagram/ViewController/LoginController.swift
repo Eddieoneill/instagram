@@ -38,6 +38,7 @@ class LoginController: UIViewController {
     }
     
     @IBAction func typeChangeButtonPressed(_ sender: UIButton) {
+        accountState = accountState == .newUser ? .existingUser : .newUser
         if accountState == .existingUser {
             signinButton.setTitle("Sign in", for: .normal)
             loginTypeLabel.text = "If you don't have an account press:"
@@ -51,7 +52,7 @@ class LoginController: UIViewController {
     }
     
     private func clearLabel() {
-        errorLabel.text = ""
+        errorLabel?.text = ""
     }
     
     private func SignIn(email: String, password: String) {
@@ -87,8 +88,7 @@ class LoginController: UIViewController {
     }
     
     private func mainView() {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let sceneDelegate = windowScene.delegate as? SceneDelegate, let window = sceneDelegate.window else { return }
-        window.rootViewController = MainTabBarController()
+        UIViewController.showViewController(storyboardName: "Main", viewControllerID: "MainTabBarController")
     }
     
 }

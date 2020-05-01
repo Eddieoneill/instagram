@@ -22,9 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
         if let _ = Auth.auth().currentUser {
-            window?.rootViewController = MainTabBarController()
+            UIViewController.showViewController(storyboardName: "Main", viewControllerID: "MainTabBarController")
         } else {
-            window?.rootViewController = UINavigationController(rootViewController: LoginController())
+            UIViewController.showViewController(storyboardName: "Login", viewControllerID: "LoginController")
         }
         window?.makeKeyAndVisible()
     }
