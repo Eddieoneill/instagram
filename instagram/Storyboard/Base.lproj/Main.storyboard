@@ -30,7 +30,54 @@
                     <view key="view" contentMode="scaleToFill" id="pdb-lh-spZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBD-mT-WrM">
+                                <rect key="frame" x="169.5" y="138" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="lJM-J2-pjn"/>
+                                    <constraint firstAttribute="width" constant="75" id="zkh-dB-miI"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="person.crop.circle.badge.plus" catalog="system"/>
+                                <connections>
+                                    <action selector="profileImageButtonPressed:" destination="ozq-VY-BcD" eventType="touchUpInside" id="FRr-fl-yu9"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pkc-4Q-qC4">
+                                <rect key="frame" x="50" y="263" width="314" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cb-hX-DkN">
+                                <rect key="frame" x="50" y="317" width="314" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="ZTJ-iT-MxP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6F-yv-Sa2">
+                                <rect key="frame" x="158" y="451" width="98" height="30"/>
+                                <state key="normal" title="Update Profile"/>
+                                <connections>
+                                    <action selector="updateProfileButtonPressed:" destination="ozq-VY-BcD" eventType="touchUpInside" id="Xbl-u9-PAO"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="MH7-Hv-Iol" firstAttribute="trailing" secondItem="pkc-4Q-qC4" secondAttribute="trailing" constant="50" id="01o-3K-UT2"/>
+                            <constraint firstItem="6cb-hX-DkN" firstAttribute="leading" secondItem="MH7-Hv-Iol" secondAttribute="leading" constant="50" id="9LM-bZ-XO4"/>
+                            <constraint firstItem="w6F-yv-Sa2" firstAttribute="centerX" secondItem="pdb-lh-spZ" secondAttribute="centerX" id="CeU-IX-EHS"/>
+                            <constraint firstItem="MH7-Hv-Iol" firstAttribute="trailing" secondItem="6cb-hX-DkN" secondAttribute="trailing" constant="50" id="IKT-li-EjI"/>
+                            <constraint firstItem="pkc-4Q-qC4" firstAttribute="top" secondItem="oBD-mT-WrM" secondAttribute="bottom" constant="50" id="Sff-6P-8SX"/>
+                            <constraint firstItem="pkc-4Q-qC4" firstAttribute="leading" secondItem="MH7-Hv-Iol" secondAttribute="leading" constant="50" id="Wns-Z2-5gp"/>
+                            <constraint firstItem="w6F-yv-Sa2" firstAttribute="top" secondItem="6cb-hX-DkN" secondAttribute="bottom" constant="100" id="eeg-pW-7s8"/>
+                            <constraint firstItem="pkc-4Q-qC4" firstAttribute="centerX" secondItem="pdb-lh-spZ" secondAttribute="centerX" id="lpb-4p-VsV"/>
+                            <constraint firstItem="oBD-mT-WrM" firstAttribute="top" secondItem="MH7-Hv-Iol" secondAttribute="top" constant="50" id="orO-Tw-Kbw"/>
+                            <constraint firstItem="oBD-mT-WrM" firstAttribute="centerX" secondItem="pdb-lh-spZ" secondAttribute="centerX" id="tBL-gS-E4Q"/>
+                            <constraint firstItem="6cb-hX-DkN" firstAttribute="top" secondItem="pkc-4Q-qC4" secondAttribute="bottom" constant="20" id="vZK-CN-0qT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MH7-Hv-Iol"/>
                     </view>
                     <navigationItem key="navigationItem" id="x5m-8y-qX7">
@@ -40,6 +87,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailLabel" destination="6cb-hX-DkN" id="ATT-Qu-m2r"/>
+                        <outlet property="profileImageButton" destination="oBD-mT-WrM" id="vMR-va-p80"/>
+                        <outlet property="userNameTextField" destination="pkc-4Q-qC4" id="S4M-AE-IlI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xo4-LV-bjF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,6 +192,7 @@
     </scenes>
     <resources>
         <image name="message.fill" catalog="system" width="128" height="113"/>
+        <image name="person.crop.circle.badge.plus" catalog="system" width="128" height="101"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus.rectangle.fill" catalog="system" width="128" height="93"/>
     </resources>
