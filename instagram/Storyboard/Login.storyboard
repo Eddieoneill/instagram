@@ -105,11 +105,11 @@
                         <viewLayoutGuide key="safeArea" id="Rs2-AJ-hOe"/>
                     </view>
                     <connections>
-                        <outlet property="SigninButton" destination="HuF-Ib-xth" id="Vyz-rI-t8S"/>
                         <outlet property="emailTextField" destination="ixm-5b-duS" id="NEp-DN-sEZ"/>
                         <outlet property="errorLabel" destination="thC-1a-7Wk" id="PyQ-K9-Xu6"/>
                         <outlet property="loginTypeLabel" destination="L3k-dZ-umk" id="r6T-1r-3ls"/>
                         <outlet property="passwordTextField" destination="PYA-Br-j45" id="bJ8-2t-1RY"/>
+                        <outlet property="signinButton" destination="HuF-Ib-xth" id="Vyz-rI-t8S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f5f-nI-FSM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -8,25 +8,87 @@
 
 import UIKit
 
-class LoginController: UIViewController {
+enum AccountState {
+    case existingUser
+    case newUser
+}
 
+class LoginController: UIViewController {
+    
     @IBOutlet weak var loginTypeLabel: UILabel!
-    @IBOutlet weak var SigninButton: UIButton!
+    @IBOutlet weak var signinButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     
+    private var accountState: AccountState = .existingUser
+    private var authSession = AuthenticationSession()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        clearLabel()
     }
     
     @IBAction func signinButtonPressed(_ sender: UIButton) {
-        
+        guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+            showAlert(title: "Invalid information", message: "Please double check your email and password")
+            return
+        }
+        SignIn(email: email, password: password)
     }
     
     @IBAction func typeChangeButtonPressed(_ sender: UIButton) {
-        
+        if accountState == .existingUser {
+            signinButton.setTitle("Sign in", for: .normal)
+            loginTypeLabel.text = "If you don't have an account press:"
+            sender.setTitle("Sign Up", for: .normal)
+            
+        } else {
+            signinButton.setTitle("Sign Up", for: .normal)
+            loginTypeLabel.text = "If you have an account:"
+            sender.setTitle("Login", for: .normal)
+        }
     }
-
+    
+    private func clearLabel() {
+        errorLabel.text = ""
+    }
+    
+    private func SignIn(email: String, password: String) {
+        if accountState == .existingUser {
+            authSession.signExistingUser(email: email, password: password) { [weak self] (result) in
+                switch result {
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self?.errorLabel.text = "\(error.localizedDescription)"
+                        self?.errorLabel.textColor = .systemRed
+                    }
+                case .success:
+                    DispatchQueue.main.async {
+                        self?.mainView()
+                    }
+                }
+            }
+        } else {
+            authSession.createNewUser(email: email, password: password) { [weak self] (result) in
+                switch result {
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self?.errorLabel.text = "\(error.localizedDescription)"
+                        self?.errorLabel.textColor = .systemRed
+                    }
+                case .success:
+                    DispatchQueue.main.async {
+                        self?.mainView()
+                    }
+                }
+            }
+        }
+    }
+    
+    private func mainView() {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let sceneDelegate = windowScene.delegate as? SceneDelegate, let window = sceneDelegate.window else { return }
+        window.rootViewController = MainTabBarController()
+    }
+    
 }
