@@ -7,24 +7,25 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ProfileController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func signoutButtonPressed(_ sender: UIBarButtonItem) {
+        do {
+            try Auth.auth().signOut()
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                let sceneDelegate = windowScene.delegate as? SceneDelegate, let window = sceneDelegate.window else { return }
+            window.rootViewController = LoginController()
+        } catch {
+            DispatchQueue.main.async {
+                self.showAlert(title: "Error signing out", message: "\(error.localizedDescription)")
+            }
+        }
     }
-    */
-
 }

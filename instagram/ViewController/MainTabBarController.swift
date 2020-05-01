@@ -9,22 +9,32 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        viewControllers = [firstVC, secondVC, thirdVC]
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    private lazy var firstVC: UINavigationController = {
+        let vc = UINavigationController(rootViewController: FeedController())
+        vc.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "message.fill"), tag: 0)
+        
+        return vc
+    }()
+    
+    private lazy var secondVC: UINavigationController = {
+        let vc = UINavigationController(rootViewController: PostController())
+        vc.tabBarItem = UITabBarItem(title: "Create", image: UIImage(systemName: "plus.bubble"), tag: 1)
+        
+        return vc
+    }()
+    
+    
+    private lazy var thirdVC: UIViewController = {
+        let vc = UINavigationController(rootViewController: ProfileController())
+        vc.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle"), tag: 2)
+        return vc
+    }()
+    
 }
