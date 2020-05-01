@@ -10,18 +10,16 @@ import UIKit
 
 class DetailController: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
+    private let detailView = DetailView()
     
     private var photo: Photo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        titleLabel.text = photo.title
-        descriptionLabel.text = "Date Posted: \(photo.postedDate) by \(photo.posterName) \n \(photo.description)"
-        imageView.kf.setImage(with: URL(string: photo.imageURL))
+        detailView.titleLabel.text = photo.title
+        detailView.descriptionLabel.text = "Date Posted: \(photo.postedDate) by \(photo.posterName) \n \(photo.description)"
+        detailView.photoImageView.kf.setImage(with: URL(string: photo.imageURL))
+        view = detailView
     }
     
     init(photo: Photo) {

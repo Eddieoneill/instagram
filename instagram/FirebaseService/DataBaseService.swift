@@ -20,7 +20,7 @@ class DatabaseService {
     guard let user = Auth.auth().currentUser else { return }
     
     let documentRef = db.collection(DatabaseService.photoCollection).document()
-    db.collection(DatabaseService.photoCollection).document(documentRef.documentID).setData(["photoTitle":photoTitle,"photoDescription": photoDescription, "photoId":documentRef.documentID, "postedDate": Timestamp(date: Date()), "posterName": posterName,"posterId": user.uid]) { (error) in
+    db.collection(DatabaseService.photoCollection).document(documentRef.documentID).setData(["title":photoTitle,"description": photoDescription, "photoId":documentRef.documentID, "postedDate": Timestamp(date: Date()), "posterName": posterName,"posterId": user.uid]) { (error) in
       if let error = error {
         completion(.failure(error))
       } else {

@@ -12,27 +12,28 @@ import FirebaseAuth
 
 class PostController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    private var postCollectionView = PostCollectionView()
     
     private var listener: ListenerRegistration?
     
     private var photos = [Photo]() {
         didSet {
             DispatchQueue.main.async {
-                self.collectionView.reloadData()
+                self.postCollectionView.collectionView.reloadData()
             }
         }
     }
     
-//    @IBAction func createPhoto(_ sender: UIBarButtonItem) {
-//        navigationController?.pushViewController(CreatePostController(), animated: true)
-//    }
+    //    @IBAction func createPhoto(_ sender: UIBarButtonItem) {
+    //        navigationController?.pushViewController(CreatePostController(), animated: true)
+    //    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.register(PostCell.self, forCellWithReuseIdentifier: "PostCell")
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        postCollectionView.collectionView.register(PostCell.self, forCellWithReuseIdentifier: "PostCell")
+        postCollectionView.collectionView.delegate = self
+        postCollectionView.collectionView.dataSource = self
+        view = postCollectionView
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,22 +58,26 @@ class PostController: UIViewController {
 }
 
 extension PostController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return photos.count
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as? PostCell else {
-      fatalError("could not downcaset to PhotoCollectionViewCell")
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photos.count
     }
-    let photo = photos[indexPath.row]
-    cell.configureCell(photo)
-    return cell
-  }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as? PostCell else {
+            fatalError("could not downcaset to PhotoCollectionViewCell")
+        }
+        let photo = photos[indexPath.row]
+        cell.configureCell(photo)
+        return cell
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selected = photos[indexPath.row]
         let vc = DetailController(photo: selected)
         present(vc, animated: true, completion: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 200, height: 200)
     }
 }

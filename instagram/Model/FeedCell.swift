@@ -51,10 +51,12 @@ class FeedCell: UITableViewCell {
     private func setupImageViewConstraints() {
         addSubview(postImageView)
         postImageView.translatesAutoresizingMaskIntoConstraints = false
-        postImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        postImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        postImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
-        postImageView.widthAnchor.constraint(equalTo: postImageView.heightAnchor, multiplier: 16/9).isActive = true
+        NSLayoutConstraint.activate([
+            postImageView.topAnchor.constraint(equalTo: topAnchor),
+            postImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            postImageView.heightAnchor.constraint(equalToConstant: 100),
+            postImageView.widthAnchor.constraint(equalToConstant: 100)
+        ])
     }
     
     private func setupTitleLabelConstraints() {

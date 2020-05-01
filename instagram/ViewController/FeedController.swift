@@ -11,23 +11,23 @@ import FirebaseFirestore
 
 class FeedController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    private let feedView = FeedView()
     
     private var listener: ListenerRegistration?
     
     private var photos = [Photo]() {
         didSet {
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.feedView.tableView.reloadData()
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(FeedCell.self, forCellReuseIdentifier: "FeedCell")
+        feedView.tableView.dataSource = self
+        feedView.tableView.delegate = self
+        view = feedView
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,7 +67,7 @@ extension FeedController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = photos[indexPath.row]
         let vc = DetailController(photo: selected)
-        present(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -30,6 +30,9 @@
 		6C63258B245BC95D009592B2 /* UIAlertController + showAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C63258A245BC95D009592B2 /* UIAlertController + showAlert.swift */; };
 		6C63258D245BCE13009592B2 /* UIViewController + navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C63258C245BCE13009592B2 /* UIViewController + navigation.swift */; };
 		6C63258F245BD673009592B2 /* UIImage + resizeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C63258E245BD673009592B2 /* UIImage + resizeImage.swift */; };
+		6C632592245BE90D009592B2 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C632591245BE90D009592B2 /* DetailView.swift */; };
+		6C632594245BECEF009592B2 /* PostCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C632593245BECEF009592B2 /* PostCollectionView.swift */; };
+		6C632596245BEF3B009592B2 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C632595245BEF3B009592B2 /* FeedView.swift */; };
 		F31B2100C9674B453599C8C1 /* Pods_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D55B997B0E9BEB17B58B780 /* Pods_instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +63,9 @@
 		6C63258A245BC95D009592B2 /* UIAlertController + showAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController + showAlert.swift"; sourceTree = "<group>"; };
 		6C63258C245BCE13009592B2 /* UIViewController + navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + navigation.swift"; sourceTree = "<group>"; };
 		6C63258E245BD673009592B2 /* UIImage + resizeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + resizeImage.swift"; sourceTree = "<group>"; };
+		6C632591245BE90D009592B2 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		6C632593245BECEF009592B2 /* PostCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionView.swift; sourceTree = "<group>"; };
+		6C632595245BEF3B009592B2 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		91925F70DA5850CC40523133 /* Pods-instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram.release.xcconfig"; path = "Target Support Files/Pods-instagram/Pods-instagram.release.xcconfig"; sourceTree = "<group>"; };
 		D41F6F0D0BFA57A6039085BD /* Pods-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram.debug.xcconfig"; path = "Target Support Files/Pods-instagram/Pods-instagram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +115,7 @@
 				6C632589245BC928009592B2 /* Extension */,
 				6C63256A245BBD12009592B2 /* FirebaseService */,
 				6C632569245BBD0C009592B2 /* Model */,
+				6C632590245BE8EB009592B2 /* View */,
 				6C632568245BBD00009592B2 /* ViewController */,
 				6C63256C245BBD44009592B2 /* Storyboard */,
 				6C63256B245BBD22009592B2 /* SupportingFile */,
@@ -180,6 +187,16 @@
 				6C63258E245BD673009592B2 /* UIImage + resizeImage.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		6C632590245BE8EB009592B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6C632591245BE90D009592B2 /* DetailView.swift */,
+				6C632593245BECEF009592B2 /* PostCollectionView.swift */,
+				6C632595245BEF3B009592B2 /* FeedView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		6FB623AF164B87080982CC8B /* Frameworks */ = {
@@ -314,7 +331,9 @@
 				6C632574245BBE87009592B2 /* ProfileController.swift in Sources */,
 				6C632578245BBEBA009592B2 /* CreatePostController.swift in Sources */,
 				6C632576245BBE95009592B2 /* FeedController.swift in Sources */,
+				6C632596245BEF3B009592B2 /* FeedView.swift in Sources */,
 				6C63254F245BB565009592B2 /* AppDelegate.swift in Sources */,
+				6C632592245BE90D009592B2 /* DetailView.swift in Sources */,
 				6C632586245BC013009592B2 /* DataBaseService.swift in Sources */,
 				6C63257E245BBF95009592B2 /* FeedCell.swift in Sources */,
 				6C63257C245BBF26009592B2 /* PostController.swift in Sources */,
@@ -324,6 +343,7 @@
 				6C63258B245BC95D009592B2 /* UIAlertController + showAlert.swift in Sources */,
 				6C632572245BBE66009592B2 /* MainTabBarController.swift in Sources */,
 				6C632551245BB565009592B2 /* SceneDelegate.swift in Sources */,
+				6C632594245BECEF009592B2 /* PostCollectionView.swift in Sources */,
 				6C632584245BC005009592B2 /* AuthenticationSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
